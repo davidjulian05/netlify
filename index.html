@@ -1,1 +1,421 @@
-Hi David Julian
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Julian - Góc Nhỏ Blog & Chia Sẻ</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --accent-bg: #eff6ff;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-bottom: 40px;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Navigation */
+        .header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .brand-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .brand-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .brand-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .nav-links a {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: var(--accent-bg);
+            color: var(--primary);
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--primary);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Banner */
+        .banner-section {
+            margin: 24px 0;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            display: block;
+        }
+
+        /* Layout Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 28px;
+        }
+
+        @media (max-width: 850px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Post Content Card */
+        .post-card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .post-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+
+        .post-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .post-body p {
+            margin-bottom: 16px;
+            font-size: 1rem;
+            color: #334155;
+            text-align: justify;
+        }
+
+        .post-body a {
+            font-weight: 600;
+        }
+
+        /* Sidebar Widgets */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .widget {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .author-widget {
+            text-align: center;
+        }
+
+        .author-widget img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 12px;
+            border: 3px solid var(--accent-bg);
+        }
+
+        .author-widget h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .author-widget p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .widget-title {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+            color: var(--text-main);
+        }
+
+        /* Feature Blog (Ratio 16:9) */
+        .feature-card {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #fff;
+        }
+
+        .feature-thumb-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background-color: #cbd5e1;
+        }
+
+        .feature-thumb-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-thumb-container img {
+            transform: scale(1.05);
+        }
+
+        .feature-content {
+            padding: 16px;
+        }
+
+        .feature-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+
+        /* Footer Style */
+        .footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            margin-top: 48px;
+            padding: 40px 0 20px 0;
+            border-radius: var(--radius-lg);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer-col h4 {
+            color: #f8fafc;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+        }
+
+        .footer-links a:hover {
+            color: #38bdf8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container header-inner">
+            <div class="brand-info">
+                <img src="https://sf-static.upanhlaylink.com/img/image_202608129c7cc19f3d10ff590ed14fbc663f952d.jpg" alt="David Julian Logo" class="brand-avatar">
+                <div>
+                    <h1 class="brand-title">David Julian</h1>
+                    <p class="brand-tagline">Góc nhỏ chia sẻ & Trải nghiệm</p>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Banner Image -->
+        <section class="banner-section">
+            <img src="https://sf-static.upanhlaylink.com/img/image_20260812ac658a2c02e39cdeccfb8d56dba02544.jpg" alt="David Julian Banner" class="banner-img">
+        </section>
+
+        <!-- Main Layout -->
+        <div class="main-grid">
+            <!-- Article Main Content -->
+            <main>
+                <article class="post-card">
+                    <h1 class="post-title">Thói quen theo dõi kết quả xổ số kiến thiết mỗi chiều Thứ 6</h1>
+                    <div class="post-meta">Đăng bởi <strong>David Julian</strong> | Cập nhật ngày 25/08/2026</div>
+
+                    <div class="post-body">
+                        <p>Chào mọi người nha! Mình là David Julian, rất vui được gặp anh em ở góc nhỏ blog này của mình.</p>
+                        
+                        <p>Chiều Thứ 6 tuần nào cũng vậy, cứ tầm 18h15 rảnh rỗi sau một tuần làm việc là mình lại có thói quen quen thuộc giữ suốt mấy năm nay rồi. Đến đúng khung giờ này là mình lại mở điện thoại lên ngồi canh kết quả <a href="https://xosothienphu.vn/xsmb-thu-6-xshp.html" target="_blank" rel="noopener">xổ số miền bắc thứ 6</a>. Cái cảm giác ngồi hóng từng dải số nhảy qua từng giải quay thưởng nó vừa hồi hồi, vừa vui vui kiểu gì ấy, thành ra tuần nào tới giờ đó mà không mở lên xem là lại thấy thiêu thiếu ngay.</p>
+                        
+                        <p>Mấy thời gian đầu tìm chỗ xem cũng cực lắm, chuyển qua chuyển lại mấy trang mà trang thì giật lag, trang thì số hiện chậm rì. Nhiều lúc muốn tìm một nơi theo dõi quay thưởng <a href="https://xosothienphu.vn/xsmb-sxmb-kqxsmb-xo-so-mien-bac.html" target="_blank" rel="noopener">xổ số kiến thiết miền bắc</a> chuẩn xác mà tìm mỏi mắt toàn gặp mấy trang hiển thị rối rắm, nhìn hoa cả mắt.</p>
+                        
+                        <p>Sau này may mắn biết đến Xổ số Thiên Phú thì mình mê luôn tới giờ. Dò trên Thiên Phú thích nhất ở chỗ là cập nhật siêu nhanh và chuẩn đét luôn. Hội đồng quay tới đâu là kết quả hiện lên ngay tới đó theo thời gian thực, không bị trễ một giây nào.</p>
+                        
+                        <p>Giao diện bên Thiên Phú cũng trình bày rất sạch sẽ, con số to rõ dễ nhìn nên xem trên điện thoại hay máy tính gì cũng mượt mà, tiện lợi lắm. Chiều Thứ 6 tầm 18h15 rảnh rỗi, anh em cứ ghé Xổ số Thiên Phú hóng kết quả trực tiếp cùng mình cho xôm nhé!</p>
+                    </div>
+                </article>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Author Bio Widget -->
+                <div class="widget author-widget">
+                    <img src="https://sf-static.upanhlaylink.com/img/image_202608129c7cc19f3d10ff590ed14fbc663f952d.jpg" alt="David Julian Avatar">
+                    <h3>David Julian</h3>
+                    <p>Blogger cá nhân. Nơi lưu trữ trải nghiệm, thói quen và những góc nhìn nhỏ trong cuộc sống.</p>
+                </div>
+
+                <!-- Feature Blog Widget -->
+                <div class="widget">
+                    <h2 class="widget-title">Feature Blog</h2>
+                    <div class="feature-card">
+                        <div class="feature-thumb-container">
+                            <img src="https://sf-static.upanhlaylink.com/img/image_20260819b5c94bd646031bba3f06aca54abbdea4.jpg" alt="Feature Blog Thumbnail">
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Bài Viết Nổi Bật Tuần Này</h3>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4>Developer Portfolio Links</h4>
+                        <ul class="footer-links">
+                            <li>Github: <a href="https://davidjulian05.github.io/" target="_blank">davidjulian05.github.io</a></li>
+                            <li>Vercel: <a href="https://davidjulian-nine.vercel.app/" target="_blank">davidjulian-nine.vercel.app</a></li>
+                            <li>Onrender: <a href="https://davidjulian05.onrender.com/" target="_blank">davidjulian05.onrender.com</a></li>
+                            <li>Codeberg: <a href="https://davidjulian05.codeberg.page/" target="_blank">davidjulian05.codeberg.page</a></li>
+                            <li>Framer: <a href="https://davidjulian05.framer.website/" target="_blank">davidjulian05.framer.website</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Social Media</h4>
+                        <ul class="footer-links">
+                            <li>Pinterest: <a href="#" target="_blank">David Julian Pinterest</a></li>
+                            <li>X (Twitter): <a href="#" target="_blank">David Julian X</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    &copy; 2026 David Julian Blog. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
