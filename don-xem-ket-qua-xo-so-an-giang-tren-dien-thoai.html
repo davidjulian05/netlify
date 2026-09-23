@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Julian Blog - Theo dõi Kết quả Xổ số An Giang trên Điện thoại</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #1e293b;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --bg-main: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
+      --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.01);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    /* Header */
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .brand-name {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      padding: 0.5rem 0;
+      position: relative;
+    }
+
+    nav a.active, nav a:hover {
+      color: var(--accent);
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3rem;
+      background-color: var(--card-bg);
+      aspect-ratio: 1400 / 560;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-banner:hover img {
+      transform: scale(1.015);
+    }
+
+    /* Layout Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 992px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Primary Blog Card */
+    .blog-post-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .author-img {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      border: 2px solid #eff6ff;
+    }
+
+    .author-info h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .author-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .post-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      line-height: 1.35;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .post-content h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 2rem 0 1rem 0;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .post-content h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.5rem 0 0.75rem 0;
+    }
+
+    .post-content p {
+      font-size: 1.05rem;
+      color: #334155;
+      margin-bottom: 1.25rem;
+      text-align: justify;
+    }
+
+    .post-content ol {
+      margin: 1rem 0 1.5rem 1.5rem;
+      color: #334155;
+    }
+
+    .post-content li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .post-content a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      transition: color 0.2s;
+    }
+
+    .post-content a:hover {
+      color: var(--accent-hover);
+    }
+
+    /* Content Images with Caption */
+    .content-img-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .content-img-wrapper img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+
+    .img-caption {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    /* Read More Box */
+    .read-more-box {
+      background: #f1f5f9;
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 2rem 0;
+      font-weight: 600;
+    }
+
+    /* Sidebar / Featured */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .widget {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+
+    .widget-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--bg-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .widget-title i {
+      color: var(--accent);
+    }
+
+    .featured-blog-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .featured-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    .featured-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .featured-blog-card:hover .featured-thumb img {
+      transform: scale(1.05);
+    }
+
+    .featured-title {
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: var(--primary);
+    }
+
+    .featured-title:hover {
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: #f1f5f9;
+      padding: 3rem 1.5rem 2rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      text-align: center;
+    }
+
+    .footer-brand h4 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-brand p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-links a:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .social-links img {
+      filter: brightness(0) invert(1);
+      transition: filter 0.3s ease;
+    }
+
+    .copyright {
+      color: #64748b;
+      font-size: 0.85rem;
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <img src="https://sf-static.upanhlaylink.com/img/image_202608129c7cc19f3d10ff590ed14fbc663f952d.jpg" alt="David Julian Avatar" class="brand-avatar">
+        <span class="brand-name">David Julian Blog</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="https://davidjulian.netlify.app/" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Banner Section -->
+    <div class="hero-banner">
+      <img src="https://sf-static.upanhlaylink.com/img/image_20260812ac658a2c02e39cdeccfb8d56dba02544.jpg" alt="David Julian Banner" width="1400" height="560">
+    </div>
+
+    <div class="content-grid">
+      <!-- Main Blog Post -->
+      <article class="blog-post-card">
+        <div class="post-header">
+          <img src="https://sf-static.upanhlaylink.com/img/image_202608129c7cc19f3d10ff590ed14fbc663f952d.jpg" alt="David Julian" class="author-img">
+          <div class="author-info">
+            <h3>David Julian</h3>
+            <p>Chia sẻ trải nghiệm & Thói quen đời thường</p>
+          </div>
+        </div>
+
+        <h1 class="post-title">Đón Xem Kết Quả Xổ Số An Giang Trực Tiếp Trên Điện Thoại Tiện Lợi & Chuẩn Xác</h1>
+
+        <div class="post-content">
+          <p>Chào Bà con, trong nhịp sống hiện đại ngày nay, chiếc điện thoại thông minh đã trở thành vật bất ly thân giúp chúng ta kết nối và cập nhật thông tin mọi lúc mọi nơi. Với những ai yêu thích và ủng hộ vé số truyền thống tại vùng đất An Giang, việc theo dõi kết quả <a href="https://xosothienphu.vn/xsag-xo-so-an-giang-sxag.html" target="_blank" rel="noopener">so xo an giang</a> mở thưởng vào mỗi buổi chiều Thứ Năm đã trở thành một nét văn hóa tinh thần quen thuộc.</p>
+
+          <div class="content-img-wrapper">
+            <img src="https://img.upanh.moe/fYGvpytY/blob.jpg" alt="Theo dõi kết quả xổ số An Giang trên thiết bị di động">
+            <div class="img-caption">Nguồn ảnh: Vesophattai</div>
+          </div>
+
+          <p>Thay vì phải chờ đợi bên chiếc tivi hay radio như trước đây, giờ đây Bà con hoàn toàn có thể chủ động đón xem những vòng quay kịch tính ngay trên lòng bàn tay mình với sự hỗ trợ của công nghệ số mượt mà và tiện lợi.</p>
+
+          <h2>KHUNG GIỜ QUAY THƯỞNG VÀ LỊCH MỞ THƯỞNG XỔ SỐ AN GIANG</h2>
+
+          <h3>Khung giờ quay trực tiếp để đón xem kết quả</h3>
+          <p>Để không bỏ lỡ những giây phút hồi hộp khi từng quả bóng được tung ra, Bà con cần ghi nhớ khung giờ quay thưởng định kỳ của Xổ số An Giang. Theo quy định của Hội đồng Xổ số kiến thiết miền Nam, đài An Giang sẽ tiến hành quay số mở thưởng vào khung giờ từ 16h10 đến 16h35.</p>
+
+          <p>Đây là khoảng thời gian mà các hệ thống truyền dẫn số liệu hoạt động tích cực để đưa thông tin từ trường quay đến với thiết bị di động của Bà con một cách nhanh chóng nhất. Việc nắm vững khung giờ này giúp Bà con chủ động sắp xếp công việc và chuẩn bị sẵn chiếc điện thoại trên tay để đối chiếu những tấm vé mình đang sở hữu.</p>
+
+          <h3>Lịch mở thưởng định kỳ hàng tuần</h3>
+          <p>Mỗi tỉnh thành trong khu vực miền Nam đều có ngày mở thưởng riêng biệt để phục vụ nhu cầu của người dân. Riêng với tỉnh An Giang, lịch mở thưởng được ấn định vào ngày Thứ Năm hàng tuần.</p>
+
+          <p>Đây là ngày mà Bà con khắp các nẻo đường từ thành phố Long Xuyên đến các huyện vùng xa đều háo hức chờ đợi. Trong cùng ngày Thứ Năm này, bên cạnh đài An Giang còn có sự góp mặt của đài Tây Ninh và Bình Thuận, tạo nên một buổi chiều rộn ràng cho thị trường <a href="https://xosothienphu.vn/xsmn-thu-5.html" target="_blank" rel="noopener">xổ số miền nam thứ năm tuần rồi</a> khu vực phía Nam. Bà con hãy lưu ý lịch trình này để có thể cập nhật kết quả đúng ngày và đúng đài mình đã mua vé.</p>
+
+          <h2>CHI TIẾT CƠ CẤU GIẢI THƯỞNG XỔ SỐ KIẾN THIẾT AN GIANG</h2>
+          <p>Xổ số An Giang thuộc hệ thống xổ số miền Nam với cơ cấu giải thưởng vô cùng đa dạng và giá trị cho loại vé mệnh giá 10.000 VNĐ. Với tổng cộng 18 lần quay số cho mỗi kỳ mở thưởng, cơ hội để nhận về những phần quà giá trị luôn rộng mở cho tất cả mọi người.</p>
+
+          <p>Dưới đây là danh sách chi tiết các hạng giải thưởng mà Bà con có cơ hội nhận được khi tham gia ủng hộ vé số kiến thiết An Giang:</p>
+
+          <ol>
+            <li><strong>Giải Đặc biệt:</strong> Có 01 giải duy nhất với giá trị lên đến 2.000.000.000 VNĐ dành cho tấm vé trùng khớp hoàn toàn 6 chữ số.</li>
+            <li><strong>Giải Nhất:</strong> Có 10 giải, mỗi giải trị giá 30.000.000 VNĐ.</li>
+            <li><strong>Giải Nhì:</strong> Có 10 giải, mỗi giải trị giá 15.000.000 VNĐ.</li>
+            <li><strong>Giải Ba:</strong> Có 20 giải, mỗi giải trị giá 10.000.000 VNĐ.</li>
+            <li><strong>Giải Tư:</strong> Có 70 giải, mỗi giải trị giá 3.000.000 VNĐ.</li>
+            <li><strong>Giải Năm:</strong> Có 100 giải, mỗi giải trị giá 1.000.000 VNĐ.</li>
+            <li><strong>Giải Sáu:</strong> Có 300 giải, mỗi giải trị giá 400.000 VNĐ.</li>
+            <li><strong>Giải Bảy:</strong> Có 1.000 giải, mỗi giải trị giá 200.000 VNĐ.</li>
+            <li><strong>Giải Tám:</strong> Có 10.000 giải, mỗi giải trị giá 100.000 VNĐ.</li>
+            <li><strong>Giải Phụ Đặc biệt:</strong> Có 09 giải, mỗi giải trị giá 50.000.000 VNĐ cho những vé chỉ sai chữ số đầu tiên nhưng trùng 5 chữ số còn lại của giải Đặc biệt.</li>
+            <li><strong>Giải Khuyến khích:</strong> Có 45 giải, mỗi giải trị giá 6.000.000 VNĐ dành cho những vé trúng chữ số hàng trăm ngàn nhưng sai ở bất kỳ vị trí nào trong 5 chữ số còn lại của giải Đặc biệt.</li>
+          </ol>
+
+          <div class="content-img-wrapper">
+            <img src="https://img.upanh.moe/Kxgv4BKF/blob.jpg" alt="Kết quả Xổ số An Giang ngày 23/09/2026">
+            <div class="img-caption">Xố số An Giang ngày 23/09/2026 - Nguồn ảnh: Xổ số Thiên Phú</div>
+          </div>
+
+          <h2>TRẢI NGHIỆM NGƯỜI DÙNG SỐ KHI XEM KẾT QUẢ TRÊN ĐIỆN THOẠI</h2>
+
+          <h3>Sự tiện lợi của giao diện tối giản</h3>
+          <p>Bà con khi sử dụng điện thoại để xem kết quả thường mong muốn một giao diện đơn giản, dễ nhìn và không gây mỏi mắt. Hiểu được điều đó, các nền tảng tra cứu hiện nay đã tối ưu hóa hiển thị để các con số hiện ra rõ ràng, sắc nét. Các nút bấm được thiết kế thông minh, phù hợp với thao tác chạm lướt tự nhiên giúp Bà con dễ dàng chuyển đổi giữa các kỳ mở thưởng khác nhau.</p>
+
+          <p>Đặc biệt, màu sắc hài hòa và phông chữ lớn giúp cho ngay cả những người lớn tuổi cũng có thể tự mình dò số một cách chính xác mà không gặp bất kỳ khó khăn nào. Bà con có thể cập nhật nhanh chóng, chuẩn xác và tiện lợi tại trang web Xổ số Thiên Phú để tận hưởng trọn vẹn những ưu điểm vượt trội này của công nghệ.</p>
+
+          <h3>Tốc độ tải mượt mà và thông tin cập nhật liên tục</h3>
+          <p>Một trong những yếu tố quan trọng nhất khi xem trực tiếp kết quả xổ số trên điện thoại chính là tốc độ. Không ai muốn phải chờ đợi hay gặp tình trạng giật lag khi buổi quay thưởng đang đến hồi gay cấn.</p>
+
+          <p>Các trang web hiện đại đã được tối ưu mã nguồn để đảm bảo tốc độ tải trang chỉ trong tích tắc, ngay cả khi kết nối mạng không quá mạnh. Mọi kết quả từ giải Tám đến giải Đặc biệt đều được cập nhật theo thời gian trực tiếp từ trường quay, giúp Bà con nắm bắt thông tin nhanh như đang ngồi tại hội trường quay số.</p>
+
+          <p>Ngoài ra, tính năng lưu lại lịch sử kết quả nhiều kỳ trước cũng là một điểm cộng lớn, giúp Bà con có thể xem lại thông tin bất cứ khi nào cần thiết mà không phải tốn công tìm kiếm.</p>
+
+          <h2>THÔNG TIN ĐỊA CHỈ VÀ Ý NGHĨA XÃ HỘI CỦA XỔ SỐ AN GIANG</h2>
+
+          <h3>Trụ sở công ty xổ số kiến thiết An Giang</h3>
+          <p>Khi có niềm vui nhận thưởng, Bà con cần biết địa chính xác để thực hiện các thủ tục theo quy định. Công ty TNHH MTV Xổ số kiến thiết An Giang có trụ sở đặt tại vị trí rất thuận lợi để người dân đến giao dịch. Bà con hãy ghi nhớ thông tin sau đây để thuận tiện cho việc liên hệ khi cần thiết:<br>
+          <strong>Địa chỉ:</strong> Số 64C Nguyễn Thái Học, phường Mỹ Bình, thành phố Long Xuyên, tỉnh An Giang.</p>
+          <p>Đây là nơi tiếp nhận và giải quyết các vấn đề liên quan đến vé số kiến thiết trên địa bàn tỉnh, đảm bảo tính minh bạch và quyền lợi cho mọi người dân tham gia.</p>
+
+          <h3>Ý nghĩa ích nước lợi nhà</h3>
+          <p>Việc tham gia mua vé số truyền thống không chỉ mang lại niềm vui giải trí lành mạnh cho Bà con sau những giờ lao động vất vả, mà còn đóng góp to lớn vào nguồn ngân sách của địa phương. Với khẩu hiệu ích nước lợi nhà, nguồn thu từ hoạt động xổ số được tỉnh An Giang đóng góp vào các công trình phúc lợi xã hội trọng điểm.</p>
+
+          <p>Những ngôi trường mới khang trang, các trạm y tế được trang bị hiện đại hay những cây cầu bê tông thay thế cầu khỉ vùng sâu vùng xa đều có sự đóng góp âm thầm từ những tấm vé số của Bà con. Đây chính là tinh thần nhân văn cao cả, giúp cộng đồng ngày càng phát triển bền vững hơn.</p>
+
+          <p>Việc đón xem kết quả xổ số An Giang trên điện thoại đã mang lại sự chủ động và thoải mái tối đa cho người dân. Chỉ với vài thao tác đơn giản, Bà con đã có thể nắm bắt mọi thông tin về kỳ mở thưởng một cách minh bạch và nhanh chóng. Hãy tiếp tục ủng hộ xổ số kiến thiết để cùng chung tay xây dựng quê hương ngày càng giàu đẹp.</p>
+
+          <p>Đừng quên truy cập thường xuyên vào Xổ số Thiên Phú để không bỏ lỡ các buổi quay thưởng trực tiếp diễn ra từ 16h10 đến 16h35 mỗi ngày, giúp việc tra cứu thông tin của Bà con trở nên đơn giản và hiệu quả hơn bao giờ hết.</p>
+
+          <div class="read-more-box">
+            👉 <strong>Xem thêm bài viết liên quan:</strong> <a href="https://davidjulian05.blogspot.com/2026/08/blog-post_10.html" target="_blank" rel="noopener">Cập nhật thói quen tra cứu kết quả xổ số trực tuyến mới nhất</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="widget">
+          <h3 class="widget-title"><i class="fa-solid fa-star"></i> Feature Blog</h3>
+          <div class="featured-blog-card">
+            <a href="https://davidjulian05.blogspot.com/2026/08/blog-post_10.html" target="_blank" class="featured-thumb">
+              <img src="https://sf-static.upanhlaylink.com/img/image_20260819b5c94bd646031bba3f06aca54abbdea4.jpg" alt="Feature Blog Thumbnail">
+            </a>
+            <a href="https://davidjulian05.blogspot.com/2026/08/blog-post_10.html" target="_blank" class="featured-title">
+              Trải Nghiệm Dò Kết Quả Xổ Số Trực Tiếp Theo Thời Gian Thực Siêu Nhanh & Chính Xác
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h4>David Julian Blog</h4>
+        <p>Góc nhỏ chia sẻ cuộc sống, sở thích và thói quen mỗi ngày.</p>
+      </div>
+
+      <div class="social-links">
+        <a href="https://davidjulian-nine.vercel.app/" target="_blank" title="Vercel">
+          <img src="https://www.google.com/s2/favicons?domain=vercel.com&sz=64" alt="Vercel" width="24" height="24">
+        </a>
+        <a href="https://workers.cloudflare.com" target="_blank" title="Cloudflare Workers">
+          <img src="https://www.google.com/s2/favicons?domain=workers.cloudflare.com&sz=64" alt="Cloudflare Workers" width="24" height="24">
+        </a>
+        <a href="https://davidjulian05.github.io" target="_blank" title="GitHub">
+          <img src="https://www.google.com/s2/favicons?domain=github.com&sz=64" alt="GitHub" width="24" height="24">
+        </a>
+        <a href="https://davidjulian05.codeberg.page/" target="_blank" title="Codeberg">
+          <img src="https://www.google.com/s2/favicons?domain=codeberg.org&sz=64" alt="Codeberg" width="24" height="24">
+        </a>
+        <a href="https://davidjulian05.onrender.com/" target="_blank" title="Render">
+          <img src="https://www.google.com/s2/favicons?domain=onrender.com&sz=64" alt="Render" width="24" height="24">
+        </a>
+        <a href="https://davidjulian05.framer.website" target="_blank" title="Framer">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/framer.svg" alt="Framer" width="24" height="24">
+        </a>
+        <a href="https://gitlab.com/davidjulian05" target="_blank" title="GitLab">
+          <img src="https://www.google.com/s2/favicons?domain=gitlab.com&sz=64" alt="GitLab" width="24" height="24">
+        </a>
+        <a href="https://www.pinterest.com/davidjulian0503/" target="_blank" title="Pinterest">
+          <img src="https://www.google.com/s2/favicons?domain=pinterest.com&sz=64" alt="Pinterest" width="24" height="24">
+        </a>
+      </div>
+
+      <div class="copyright">
+        &copy; 2026 David Julian Blog. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
