@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cập nhật kết quả Xổ số miền Bắc 90 ngày trực tiếp, dễ dàng theo dõi - David Julian Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #1e293b;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --bg-main: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
+      --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.01);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    /* Header */
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .brand-name {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      padding: 0.5rem 0;
+      position: relative;
+    }
+
+    nav a.active, nav a:hover {
+      color: var(--accent);
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3rem;
+      background-color: var(--card-bg);
+      aspect-ratio: 1400 / 560;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-banner:hover img {
+      transform: scale(1.015);
+    }
+
+    /* Layout Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 992px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Primary Blog Card */
+    .blog-post-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .author-img {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      border: 2px solid #eff6ff;
+    }
+
+    .author-info h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .author-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .post-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      line-height: 1.35;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .post-content h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 2rem 0 1rem 0;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .post-content h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.5rem 0 0.75rem 0;
+    }
+
+    .post-content p {
+      font-size: 1.05rem;
+      color: #334155;
+      margin-bottom: 1.25rem;
+      text-align: justify;
+    }
+
+    .post-content ul, .post-content ol {
+      margin: 1rem 0 1.5rem 1.5rem;
+      color: #334155;
+    }
+
+    .post-content li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .post-content a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      transition: color 0.2s;
+    }
+
+    .post-content a:hover {
+      color: var(--accent-hover);
+    }
+
+    /* Content Images with Caption */
+    .content-img-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .content-img-wrapper img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+
+    .img-caption {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    /* Read More Box */
+    .read-more-box {
+      background: #f1f5f9;
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 2rem 0;
+      font-weight: 600;
+    }
+
+    /* Sidebar / Featured */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .widget {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+
+    .widget-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--bg-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .widget-title i {
+      color: var(--accent);
+    }
+
+    .featured-blog-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .featured-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    .featured-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .featured-blog-card:hover .featured-thumb img {
+      transform: scale(1.05);
+    }
+
+    .featured-title {
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: var(--primary);
+    }
+
+    .featured-title:hover {
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: #f1f5f9;
+      padding: 3rem 1.5rem 2rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      text-align: center;
+    }
+
+    .footer-brand h4 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-brand p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-links a:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .social-links img {
+      filter: brightness(0) invert(1);
+      transition: filter 0.3s ease;
+    }
+
+    .copyright {
+      color: #64748b;
+      font-size: 0.85rem;
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <img src="https://sf-static.upanhlaylink.com/img/image_202608129c7cc19f3d10ff590ed14fbc663f952d.jpg" alt="David Julian Avatar" class="brand-avatar">
+        <span class="brand-name">David Julian Blog</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="https://davidjulian.netlify.app/" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Banner Section -->
+    <div class="hero-banner">
+      <img src="https://sf-static.upanhlaylink.com/img/image_20260812ac658a2c02e39cdeccfb8d56dba02544.jpg" alt="David Julian Banner" width="1400" height="560">
+    </div>
+
+    <div class="content-grid">
+      <!-- Main Blog Post -->
+      <article class="blog-post-card">
+        <div class="post-header">
+          <img src="https://sf-static.upanhlaylink.com/img/image_202608129c7cc19f3d10ff590ed14fbc663f952d.jpg" alt="David Julian" class="author-img">
+          <div class="author-info">
+            <h3>David Julian</h3>
+            <p>Chia sẻ trải nghiệm & Thói quen đời thường</p>
+          </div>
+        </div>
+
+        <h1 class="post-title">Cập nhật kết quả Xổ số miền Bắc 90 ngày trực tiếp, dễ dàng theo dõi</h1>
+
+        <div class="post-content">
+          <p>Trong đời sống văn hóa giải trí tại Việt Nam, hình thức xổ số kiến thiết từ lâu đã trở thành một nét đẹp gắn liền với phương châm ích nước lợi nhà. Đối với Anh chị thường xuyên theo dõi các kỳ mở thưởng, việc nắm bắt thông tin một cách nhanh chóng và có hệ thống là vô cùng quan trọng.</p>
+
+          <p>Đặc biệt là với Xổ số miền Bắc, một trong những loại hình có truyền thống lâu đời nhất, việc theo dõi không chỉ dừng lại ở kết quả ngày hôm nay mà còn là nhu cầu tra soát lại lịch sử kết quả <a href="https://xosothienphu.vn/tra-cuu-xsmb-90-ngay.html" target="_blank" rel="noopener">kqxsmb 90 ngày</a> qua.</p>
+
+          <div class="content-img-wrapper">
+            <img src="https://cdn.upanhlaylink.com/i/4cGqZHsw.jpg" alt="Xố số miền Bắc 90 ngày 28/09/2026">
+            <div class="img-caption">Xố số miền Bắc 90 ngày 28/09/2026 - Nguồn ảnh: Xổ số Thiên Phú</div>
+          </div>
+
+          <p>Bài viết này sẽ cung cấp cho Anh chị cái nhìn toàn diện về lịch quay thưởng, địa điểm tổ chức cũng như cách thức để cập nhật thông tin một cách mượt mà và hiệu quả nhất trên các nền tảng số hiện đại.</p>
+
+          <h2>KHUNG GIỜ QUAY THƯỞNG TRỰC TIẾP XỔ SỐ MIỀN BẮC HÀNG NGÀY</h2>
+          <p>Để không bỏ lỡ bất kỳ khoảnh khắc hồi hộp nào, Anh chị cần lưu ý khung giờ vàng diễn ra hoạt động quay số. Xổ số miền Bắc được tổ chức quay thưởng trực tiếp vào một khung giờ cố định mỗi ngày, bắt đầu từ 18 giờ 10 phút và kết thúc vào khoảng 18 giờ 35 phút.</p>
+
+          <p>Đây là khoảng thời gian mà toàn bộ các hạng giải từ giải Bảy đến giải Đặc biệt sẽ lần lượt được công bố dưới sự giám sát chặt chẽ. Việc nắm rõ thời gian này giúp Anh chị có thể chủ động sắp xếp công việc cá nhân để theo dõi trực tiếp kết quả theo thời gian trực tiếp từ trường quay, đảm bảo tính minh bạch và công bằng.</p>
+
+          <h3>Lịch mở thưởng cụ thể theo từng ngày trong tuần</h3>
+          <p>Khác với một số khu vực khác, Xổ số miền Bắc có một sự thống nhất cao trong quá trình tổ chức nhưng vé lại được phát hành bởi các đơn vị thành viên khác nhau theo từng ngày. Anh chị có thể theo dõi lịch phát hành cụ thể như sau:</p>
+
+          <ul>
+            <li><strong>Thứ Hai:</strong> Vé được phát hành bởi Công ty Xổ số kiến thiết Hà Nội.</li>
+            <li><strong>Thứ Ba:</strong> Vé được phát hành bởi Công ty Xổ số kiến thiết Quảng Ninh.</li>
+            <li><strong>Thứ Tư:</strong> Vé được phát hành bởi Công ty Xổ số kiến thiết Bắc Ninh.</li>
+            <li><strong>Thứ Năm:</strong> Vé được phát hành bởi Công ty Xổ số kiến thiết Hà Nội.</li>
+            <li><strong>Thứ Sáu:</strong> Vé được phát hành bởi Công ty Xổ số kiến thiết Hải Phòng.</li>
+            <li><strong>Thứ Bảy:</strong> Vé được phát hành bởi Công ty Xổ số kiến thiết Nam Định.</li>
+            <li><strong>Chủ Nhật:</strong> Vé được phát hành bởi Công ty Xổ số kiến thiết Thái Bình.</li>
+          </ul>
+
+          <h2>ĐỊA ĐIỂM QUAY THƯỞNG VÀ TRỤ SỞ CÔNG TY CHÍNH</h2>
+          <p>Mặc dù vé được phát hành bởi nhiều tỉnh thành khác nhau trong khu vực, nhưng toàn bộ kết quả Xổ số miền Bắc đều do Hội đồng <a href="https://xosothienphu.vn/xsmb-sxmb-kqxsmb-xo-so-mien-bac.html" target="_blank" rel="noopener">xổ số kiến thiết miền bắc</a> phát hành chung. Điều này tạo nên sự đồng bộ và thuận tiện cho Anh chị khi theo dõi.</p>
+
+          <p>Toàn bộ quá trình quay thưởng được diễn ra tại một địa điểm duy nhất tại thủ đô. Cụ thể, trường quay nằm tại số 53E Hàng Bài, phường Cửa Nam, thành phố Hà Nội. Đây cũng chính là trụ sở của Công ty Xổ số kiến thiết Thủ Đô (Hà Nội).</p>
+
+          <p>Việc tập trung quay thưởng tại một điểm giúp cho công tác quản lý và truyền tải thông tin được thực hiện một cách chuyên nghiệp, giúp Anh chị luôn nhận được dữ liệu chuẩn xác nhất.</p>
+
+          <h2>TRẢI NGHIỆM THEO DÕI KẾT QUẢ TRÊN NỀN TẢNG SỐ HIỆN ĐẠI</h2>
+          <p>Với sự phát triển của công nghệ, việc tra cứu kết quả xổ số đã trở nên dễ dàng hơn bao giờ hết. Thay vì phải chờ đợi bản tin truyền hình hoặc xem tại các đại lý, Anh chị giờ đây có thể sử dụng điện thoại thông minh để cập nhật nhanh chóng, chuẩn xác và tiện lợi tại trang web Xổ số Thiên Phú.</p>
+
+          <p>Trải nghiệm người dùng số được ưu tiên hàng đầu với giao diện tối giản, giúp Anh chị dễ dàng thao tác chỉ bằng những cú chạm nhẹ hoặc lướt màn hình mượt mà. Hệ thống được tối ưu hóa để tải dữ liệu cực nhanh mà không gây mỏi mắt, ngay cả khi Anh chị muốn xem lại lịch sử kết quả của nhiều kỳ trước đó.</p>
+
+          <div class="content-img-wrapper">
+            <img src="https://cdn.upanhlaylink.com/i/efiSLcir.jpg" alt="Xố số miền Bắc 90 ngày 28/09/2026">
+            <div class="img-caption">Xố số miền Bắc 90 ngày 28/09/2026 - Nguồn ảnh: Xổ số Thiên Phú</div>
+          </div>
+
+          <h3>Lợi ích của việc tra cứu lịch sử kết quả 90 ngày</h3>
+          <p>Việc theo dõi bảng kết quả trong vòng 90 ngày mang lại nhiều lợi ích thiết thực cho Anh chị. Đầu tiên, nó giúp Anh chị dễ dàng kiểm tra lại những tờ vé số cũ mà mình vô tình bỏ quên. Thứ hai, việc có một cái nhìn tổng thể về kết quả trong ba tháng gần nhất giúp Anh chị nắm bắt được quy luật xuất hiện của các con số một cách khách quan.</p>
+
+          <p>Hệ thống lưu trữ thông tin khoa học cho phép Anh chị lọc kết quả theo thứ, theo ngày hoặc theo tỉnh thành phát hành một cách thông minh, giúp tiết kiệm thời gian và công sức so với cách tra cứu truyền thống.</p>
+
+          <h2>CHI TIẾT CƠ CẤU GIẢI THƯỞNG XỔ SỐ MIỀN BẮC</h2>
+          <p>Để Anh chị hiểu rõ hơn về giá trị mà mình có thể nhận được khi tham gia, dưới đây là chi tiết cơ cấu giải thưởng cho mỗi tờ vé mệnh giá 10.000 VNĐ. Xổ số miền Bắc có tổng cộng 27 lần quay số với các hạng giải phong phú.</p>
+
+          <ul>
+            <li><strong>Giải Đặc biệt:</strong> Bao gồm 8 giải vào ngày mùng 1 âm lịch hoặc 6 giải vào các ngày khác, mỗi giải trị giá 500.000.000 VNĐ.</li>
+            <li><strong>Giải Phụ Đặc biệt:</strong> Bao gồm 12 giải vào ngày mùng 1 âm lịch hoặc 9 giải vào các ngày khác, mỗi giải trị giá 25.000.000 VNĐ.</li>
+            <li><strong>Giải Nhất:</strong> Có 15 giải, mỗi giải trị giá 10.000.000 VNĐ.</li>
+            <li><strong>Giải Nhì:</strong> Có 30 giải, mỗi giải trị giá 5.000.000 VNĐ.</li>
+            <li><strong>Giải Ba:</strong> Có 90 giải, mỗi giải trị giá 1.000.000 VNĐ.</li>
+            <li><strong>Giải Tư:</strong> Có 600 giải, mỗi giải trị giá 400.000 VNĐ.</li>
+            <li><strong>Giải Năm:</strong> Có 900 giải, mỗi giải trị giá 200.000 VNĐ.</li>
+            <li><strong>Giải Sáu:</strong> Có 4.500 giải, mỗi giải trị giá 100.000 VNĐ.</li>
+            <li><strong>Giải Bảy:</strong> Có 60.000 giải, mỗi giải trị giá 40.000 VNĐ.</li>
+            <li><strong>Giải Khuyến Khích:</strong> Có 15.000 giải, mỗi giải trị giá 40.000 VNĐ.</li>
+          </ul>
+
+          <h2>GIÁ TRỊ NHÂN VĂN TỪ NHỮNG TỜ VÉ SỐ KIẾN THIẾT</h2>
+          <p>Mỗi tờ vé số mà Anh chị mua không chỉ là một hình thức giải trí lành mạnh mà còn đóng góp trực tiếp vào quỹ ngân sách nhà nước. Nguồn lực này được sử dụng để xây dựng các công trình công cộng như trường học, bệnh viện và các cơ sở hạ tầng thiết yếu khác tại địa phương.</p>
+
+          <p>Đây chính là tinh thần cao đẹp của hoạt động xổ số kiến thiết, nơi niềm vui cá nhân hòa chung với lợi ích của cộng đồng. Khi tham gia một cách văn minh và có trách nhiệm, Anh chị đang góp phần cùng nhà nước kiến thiết quê hương ngày càng giàu đẹp hơn.</p>
+
+          <p>Hãy truy cập website Xổ số Thiên Phú ngay hôm nay để đón xem trực tiếp kết quả xổ số đang quay thưởng và thực hiện tra cứu thông tin xổ số một cách nhanh chóng, tiện lợi.</p>
+
+          <p>Với sự đồng hành của công nghệ, việc cập nhật kết quả Xổ số miền Bắc 90 ngày giờ đây đã nằm gọn trong tầm tay của Anh chị. Chúc Anh chị luôn có những trải nghiệm xem kết quả thoải mái và tìm thấy niềm vui trong mỗi kỳ mở thưởng.</p>
+
+          <div class="read-more-box">
+            👉 <strong>Xem thêm bài viết liên quan:</strong> <a href="https://www.tumblr.com/davidjulian05/824816993294303232/tra-cuu-xsmb-90-ngay-tren-dien-thoai-huong-dan-nhanh-gon?source=share" target="_blank" rel="noopener">Tra cứu XSMB 90 ngày trên điện thoại - Hướng dẫn nhanh gọn</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="widget">
+          <h3 class="widget-title"><i class="fa-solid fa-star"></i> Feature Blog</h3>
+          <div class="featured-blog-card">
+            <a href="https://davidjulian.netlify.app/don-xem-ket-qua-xo-so-an-giang-tren-dien-thoai.html" target="_blank" class="featured-thumb">
+              <img src="https://sf-static.upanhlaylink.com/img/image_20260819b5c94bd646031bba3f06aca54abbdea4.jpg" alt="Feature Blog Thumbnail">
+            </a>
+            <a href="https://davidjulian.netlify.app/don-xem-ket-qua-xo-so-an-giang-tren-dien-thoai.html" target="_blank" class="featured-title">
+              Đón Xem Kết Quả Xổ Số An Giang Trực Tiếp Trên Điện Thoại Tiện Lợi & Chuẩn Xác
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h4>David Julian Blog</h4>
+        <p>Góc nhỏ chia sẻ cuộc sống, sở thích và thói quen mỗi ngày.</p>
+      </div>
+
+      <div class="social-links">
+        <a href="https://davidjulian-nine.vercel.app/" target="_blank" title="Vercel">
+          <img src="https://www.google.com/s2/favicons?domain=vercel.com&sz=64" alt="Vercel" width="24" height="24">
+        </a>
+        <a href="https://workers.cloudflare.com" target="_blank" title="Cloudflare Workers">
+          <img src="https://www.google.com/s2/favicons?domain=workers.cloudflare.com&sz=64" alt="Cloudflare Workers" width="24" height="24">
+        </a>
+        <a href="https://davidjulian05.github.io" target="_blank" title="GitHub">
+          <img src="https://www.google.com/s2/favicons?domain=github.com&sz=64" alt="GitHub" width="24" height="24">
+        </a>
+        <a href="https://davidjulian05.codeberg.page/" target="_blank" title="Codeberg">
+          <img src="https://www.google.com/s2/favicons?domain=codeberg.org&sz=64" alt="Codeberg" width="24" height="24">
+        </a>
+        <a href="https://davidjulian05.onrender.com/" target="_blank" title="Render">
+          <img src="https://www.google.com/s2/favicons?domain=onrender.com&sz=64" alt="Render" width="24" height="24">
+        </a>
+        <a href="https://davidjulian05.framer.website" target="_blank" title="Framer">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/framer.svg" alt="Framer" width="24" height="24">
+        </a>
+        <a href="https://gitlab.com/davidjulian05" target="_blank" title="GitLab">
+          <img src="https://www.google.com/s2/favicons?domain=gitlab.com&sz=64" alt="GitLab" width="24" height="24">
+        </a>
+        <a href="https://www.pinterest.com/davidjulian0503/" target="_blank" title="Pinterest">
+          <img src="https://www.google.com/s2/favicons?domain=pinterest.com&sz=64" alt="Pinterest" width="24" height="24">
+        </a>
+      </div>
+
+      <div class="copyright">
+        &copy; 2026 David Julian Blog. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
